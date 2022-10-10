@@ -1,6 +1,6 @@
 <section class="main-body" ng-controller="movieFetch">
-    <div class="nav-bar">
-        <input type="text" ng-model="name" placeholder="type the name of the movie to search ">{{ name }}
+    <div class="nav-bar" >
+        <input type="text" ng-model="name" placeholder="type the name of the movie to search " ng-change="lazyLoad()">{{ name }}
 
     </div>
     <div class="movies">
@@ -8,11 +8,11 @@
    
         
        
-            <img class='image' ng-src="{{movie.Poster}}" ng-click="movieInfo(movie)"/>
+            <img class='image' ng-src="{{movie.recipe.image}}" ng-click="movieInfo(movie)" loading="lazy"/>
         
-            <div class="details"> {{ movie.Title }}</div>
-            <div class="details"> {{ movie.Year }}</div>
-            <div class="details"> {{ movie.Runtime }}</div>
+            <div class="details"> {{ movie.recipe.label }}</div>
+            <div class="details"> {{ movie.recipe.mealType[0]}}</div>
+            <div class="details"> {{ movie.recipe.dishType[0] }}</div>
             <!-- <div class="details"> {{ movie.Plot }}</div> -->
         
 

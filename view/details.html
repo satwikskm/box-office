@@ -5,24 +5,30 @@
        
        <!-- {{movie}} -->
       
-        {{item}}
-        <img  ng-src="{{movie.Poster}}"/>
+      
+        <img  ng-src="{{movie.images.REGULAR.url}"/>
         <div class="info-class">
-            <div class="details"> Title :  {{ movie.Title }}</div>
-            <div class="details"> Year : {{ movie.Year }}</div>
-            <div class="details"> Runtime : {{ movie.Runtime }}</div>
-            <div class="details"> Genre :  {{ movie.Genre }}</div>
-            <div class="details">Director :  {{ movie.Director }}</div>
+            <!-- {{movie}} -->
+            <div class="details"> Title :  {{ movie.label }}</div>
+            <div class="details"> Cuisine : {{ movie.cuisineType }}</div>
+            <div class="details"> Diet: {{ movie.dietLabels }}</div>
+            <div class="details"> Ingredients :  {{ movie.dishType.ingredientLines }}</div>
+            <div class="details"> {{ movie.dishType.ingredientLines }}</div>
+            <div class="details"> {{ movie.source }}</div>
+            <div class="details">   {{ movie.totalTime }}</div>
+            <div class="details">   {{ movie.totalWeight }}</div>
+            <div class="details"> {{ movie.shareAs }}</div>
+            <!-- <div class="details">Director :  {{ movie.Director }}</div>
             <div class="details">Writer :  {{ movie.Writer }}</div>
              <div class="details">Plot : {{ movie.Plot }}</div>
-            <div class="details">Language :  {{ movie.Language }}</div>
-            <div class="score">
+            <div class="details">Language :  {{ movie.Language }}</div> -->
+            <!-- <div class="score">
                 <div class="score-card">
                     Metascore :  <div class="details"> {{ movie.Metascore }}</div>
                    
                 </div>
                 <div class="score-card">imdbRating :  <div class="details"> {{ movie.imdbRating }}</div></div>
-                <div class="score-card"> imdbVotes :  <div class="details"> {{ movie.imdbVotes }}</div></div>
+                <div class="score-card"> imdbVotes :  <div class="details"> {{ movie.imdbVotes }}</div></div> -->
 
                 
                
