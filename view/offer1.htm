@@ -1,0 +1,24 @@
+<section class="main-body" ng-controller="movieFetch">
+    <div class="nav-bar">
+        <input type="text" ng-model="name" placeholder="type the name of the movie to search ">{{ name }}
+
+    </div>
+    <div class="movies">
+        <div class="movie-card" ng-repeat="movie in movies | filter:name ">
+   
+        
+       
+            <img class='image' ng-src="{{movie.Poster}}" ng-click="movieInfo(movie)"/>
+        
+            <div class="details"> {{ movie.Title }}</div>
+            <div class="details"> {{ movie.Year }}</div>
+            <div class="details"> {{ movie.Runtime }}</div>
+            <!-- <div class="details"> {{ movie.Plot }}</div> -->
+        
+
+   </div>
+    
+
+    </div>
+   
+</section>

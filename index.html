@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="movie">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.js">
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <section class="top-bar">
+        <span> Box Office</span>
+    </section>
+    <section class="offers">
+        <div id="links">
+            <a href="#!/offer1">Offer1</a>
+            <a href="#!/offer2">Offer2</a>
+            <a href="#!/offer3">Offer3</a>
+        </div>
+        <div ng-view>
+
+        </div>
+    </section>
+   
+     <!-- <section class="main-body" ng-controller="movieFetch">
+        <div class="nav-bar">
+            <input type="text" ng-model="name" placeholder="type the name of the movie to search ">{{ name }}
+
+        </div>
+        <div class="movies">
+            <div class="movie-card" ng-repeat="movie in movies | filter:name ">
+       
+            
+           
+                <img class='image' ng-src="{{movie.Poster}}"/>
+            
+                <div class="details"> {{ movie.Title }}</div>
+                <div class="details"> {{ movie.Year }}</div>
+                <div class="details"> {{ movie.Runtime }}</div>
+               
+            
+
+       </div>
+        
+
+        </div>
+       
+    </section>  -->
+</body>
+<!-- <script src="./angular-cdn/angular.min.js"></script>
+ -->
+ 
+<script src="./controllers/index.js"></script>
+</html>
