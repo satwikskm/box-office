@@ -1,24 +1,87 @@
 <section class="main-body" ng-controller="movieFetch">
     <div class="nav-bar" >
-        <input type="text" ng-model="name" placeholder="type the name of the movie to search " ng-change="lazyLoad()">{{ name }}
+        <input type="text" ng-model="name" placeholder="type the name of the movie to search ">{{ name }}
 
     </div>
-    <div class="movies">
-        <div class="movie-card" ng-repeat="movie in movies | filter:name ">
+    <button ng-click="lazyLoad()" class="btn">Click to Search</button>
+    <div class="movies" id="movies">
+        <div class="movie-card" ng-repeat="movie in movies" ng-if="$index < (movies.length / 4)" id="mov">
    
+           
         
-       
-            <img class='image' ng-src="{{movie.recipe.image}}" ng-click="movieInfo(movie)" loading="lazy"/>
+                <img class='image' ng-src="{{movie.recipe.image}}" ng-click="movieInfo(movie)" />
         
             <div class="details"> {{ movie.recipe.label }}</div>
             <div class="details"> {{ movie.recipe.mealType[0]}}</div>
             <div class="details"> {{ movie.recipe.dishType[0] }}</div>
+
+            
+            
             <!-- <div class="details"> {{ movie.Plot }}</div> -->
+            
+            
+            
+            <!-- <div class="details"> {{ movie.Plot }}</div> -->
+        
+        
+        </div>
+        <!-- <h1>-------------------------------------------------</h1> -->
+        <div class="container">
+            <div class="movie-card" ng-repeat="movie in movies" ng-if="$index >= (movies.length / 4)" id="mov">
+   
+           
+        
+                <img class='image' ng-src="{{movie.recipe.image}}" ng-click="movieInfo(movie)" />
+        
+            <div class="details"> {{ movie.recipe.label }}</div>
+            <div class="details"> {{ movie.recipe.mealType[0]}}</div>
+            <div class="details"> {{ movie.recipe.dishType[0] }}</div>
+    
+            
+            
+            <!-- <div class="details"> {{ movie.Plot }}</div> -->
+            
+            
+            
+            <!-- <div class="details"> {{ movie.Plot }}</div> -->
+        
+        
+        </div>
+        <div class="container-1">
+            <div class="movie-card" ng-repeat="movie in movies" ng-if="$index >= (movies.length / 2)" id="mov">
+   
+           
+        
+                <img class='image' ng-src="{{movie.recipe.image}}" ng-click="movieInfo(movie)" />
+        
+            <div class="details"> {{ movie.recipe.label }}</div>
+            <div class="details"> {{ movie.recipe.mealType[0]}}</div>
+            <div class="details"> {{ movie.recipe.dishType[0] }}</div>
+    
+            
+            
+            <!-- <div class="details"> {{ movie.Plot }}</div> -->
+            
+            
+            
+            <!-- <div class="details"> {{ movie.Plot }}</div> -->
+        
+        
+        </div>
+        <div class="container-2">
+            <h1 class="footer">You have reached the end of the page</h1>
+        </div>
+        
+        
+
+        </div>
+        
         
 
    </div>
+  
     
 
-    </div>
+    
    
 </section>

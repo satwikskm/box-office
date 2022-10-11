@@ -18,6 +18,7 @@ body{
     align-items: center;
     justify-content: center;
     height: 40vh;
+    
 }
 
 .image{
@@ -25,10 +26,45 @@ body{
     border-radius: 30px 30px 0px 0px;
     
 }
+.container ,.container-1{
+    display: none;
+    gap:30px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    height: 40vh;
+
+}
+
+.container-2{
+    display: none;
+    height: 50vh;
+}
+
+.footer{
+    transform: translate(-450px,500px);
+}
+
+.btn{
+    padding: 20px 20px;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 10px;
+    background: #d64161;
+    color: aliceblue;
+    box-shadow:0 1px 3px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transform: translateX(800px);
+    border: none;
+
+}
 
 
 
-.movie-card .active{
+
+
+
+
+
+.movie-card{
     
     padding: 10px 10px;
     border-radius: 30px 30px ;
@@ -87,4 +123,9 @@ body{
     margin-top: 30px;
     display: flex;
     gap:10px;
+}
+
+
+.container{
+    transition: 0.2s ease-in;
 }

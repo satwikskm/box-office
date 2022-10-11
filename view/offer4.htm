@@ -1,0 +1,28 @@
+<section class="main-body" ng-controller="newMovieFetch" scroll>
+    <!-- <div class="nav-bar" >
+        <input type="text" ng-model="name" placeholder="type the name of the movie to search ">{{ name }}
+
+    </div>
+    <button ng-click="lazyLoad()">Click to Serach</button> -->
+    <div class="movies" id="movies">
+        <div class="movie-card" ng-repeat="movie in newMovies" id="mov">
+   
+           
+            <div class="container">
+                <img class='image' ng-src="{{movie.recipe.image}}" ng-click="movieInfo(movie)" />
+        
+            <div class="details"> {{ movie.recipe.label }}</div>
+            <div class="details"> {{ movie.recipe.mealType[0]}}</div>
+            <div class="details"> {{ movie.recipe.dishType[0] }}</div>
+
+            </div>
+            
+            <!-- <div class="details"> {{ movie.Plot }}</div> -->
+        
+
+   </div>
+    
+
+    </div>
+   
+</section>

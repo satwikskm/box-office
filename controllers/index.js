@@ -2,7 +2,10 @@
 const app = angular.module('movie',["ngRoute"])
 const topbar = document.getElementById('offer')
 console.log(topbar.offsetTop,window.pageYOffset)
-const details = document.querySelector('.movies')
+const details = document.getElementById('movie')
+
+
+
 
 
 let controllers = {}
@@ -21,6 +24,12 @@ app.config(function ($routeProvider) {
         controller:'movieInfo'
 
     })
+    // .when('/offer1/part2',{
+    //     templateUrl:'../view/offer2.htm',
+    //     controller:'newMovieInfo'
+
+    // })
+    
     
     ;
 });
@@ -38,6 +47,7 @@ app.factory('dataFactory',function($http){
     // console.log(movies)
 
     let factories = {}
+   
 
     // factories.getData = function(){
     //     console.log("Data loading",movies)
@@ -49,6 +59,8 @@ app.factory('dataFactory',function($http){
         let data ={}
         await $http.get(url).then((d)=>data = d.data.hits)
         console.log("factory data",data)
+        
+        
 
         
 
@@ -114,29 +126,143 @@ app.factory('dataFactory',function($http){
 
 let bucket = {}
 
+// controllers.newMovieFetch = function($scope,$http,dataFactory){
+//     const data = async function(){
+//         console.log($scope.name)
+//          console.log(await dataFactory.getMovieData($scope.name))
+//          store = await dataFactory.getMovieData($scope.name)
+         
+//          $scope.movies = store.slice(store.length/2,store.length)
+
+//     }
+   
+// }
+
+
 controllers.movieFetch = function($scope,$http,dataFactory){
     $scope.movies=[]
+   // $scope.name = "chicken"
     
 
   
     //console.log($http.get(url).then((data)=>data.data.hits))
     let store = {}
    
-    const data = async function(val1,val2){
-       
+    const data = async function(){
+       console.log($scope.name)
         console.log(await dataFactory.getMovieData($scope.name))
         store = await dataFactory.getMovieData($scope.name)
-        console.log(store,"store")
+        
         $scope.movies = store
+        //.slice(0,store.length/2)
+        console.log("in")
         console.log(store.slice(0,store.length/2),"cut")
-        $scope.movies.push(store.slice(val1,val2))
+        
+            // if(window.pageYOffset > 0 && window.pageYOffset < 600){
+            //     console.log("hi")
+            //     for(let i = 0;i<store.length/2;i++){
+            //         console.log(store[i])
+            //         $scope.movies.push(store[i])
+            //     }
+            // }
+            // else{
+            //     for(let i = store.length/2; store.length;i++){
+            //         console.log(store[i])
+            //         $scope.movies.push(store[i])
+            //     }
+
+            // }
+
+        
+        // for(let i=val1;i<val2;i++){
+        //     $scope.movies.push(store[i])
+        // }
+        //$scope.movies.push(store.slice(val1,val2))
+        console.log($scope.movies,"store")
+
+        $scope.iterator = angular.element(document.getElementById('mov'))
+       
+        
+       
      }
 
     $scope.lazyLoad = function(){
-        data(0,store.length/4)
+      
+            //setTimeout(data(0,store.length/4),100)
+            data()
+            data()
+            let cnt = document.querySelector('.container')
+            let cnt1 = document.querySelector('.container-1')
+            let cnt2 = document.querySelector('.container-2')
+            console.log(window.pageYOffset)
+            window.addEventListener('scroll',()=>{
+                if(window.pageYOffset >= 50){
+                    cnt.style.display="flex"
+                }
+                if(window.pageYOffset >= 600){
+                    cnt1.style.display="flex"
+                }
+                if(window.pageYOffset >= 800){
+                    cnt2.style.display="block"
+                }
+
+            })
+            
+                
+            
+            console.log(cnt)
+            
+
+            
+            // $(function() {
+            //     $('.image').Lazy();
+                
+            //     console.log("lazy")
+            // });
+              // get
+            
+            
+                   
+           
+            
+            
+            
+        
+           
     }
+    //console.log($document.querySelector('.container'))
+   
+    //$scope.lazyLoad()
     
+
     
+
+    // const myScrollFunc = function () {
+    //     let y = window.pageYOffset;
+       
+    //     let unit = document.getElementById('mov')
+    //        for(let i = 0 ;i< unit.length/2;i++){
+    //             console.log(div,"phase1")
+    //        }
+    //     if (y >= 100) {
+    //        let unit = document.getElementById('mov')
+    //        for(let i = 0 ;i< unit.length/2;i++){
+    //             console.log(div,"phase1")
+    //        }
+    //     } 
+    //     else if(y>=600){
+    //         let unit = document.getElementById('mov')
+    //        for(let i = unit.length/2 ;i< unit.length;i++){
+    //             console.log(div,"phase2")
+    //        }
+
+    //     }
+    //     else {
+    //        console.log(y)
+    //     }
+    // };
+
+    // window.addEventListener("scroll", myScrollFunc);
    
    
    
@@ -158,45 +284,43 @@ controllers.movieFetch = function($scope,$http,dataFactory){
     // }
 
     //window.addEventListener('scroll', ()=>setTimeout($scope.getMovieData,1000))
-    let count = 1
+    // let count = 1
     
-        window.addEventListener('scroll',()=>{
-            //$scope.movies.push(store.slice(0,store.length/2))
-            if(count ===1 && window.pageYOffset > 650){
+    //     window.addEventListener('scroll',()=>{
+    //         //$scope.movies.push(store.slice(0,store.length/2))
+    //         if(window.pageYOffset > 620){
                
                 
                 
-                // $scope.movies.push(store.slice(store.length/4,store.length/2))
-                data(store.length/4,store.length/2)
-                count++
-                console.log("loading...",$scope.movies,count)
+    //             // $scope.movies.push(store.slice(store.length/4,store.length/2))
+    //             data(store.length/4,store.length/2)
+    //             count++
+    //             console.log("loading...",$scope.movies,count)
     
     
-            }
-            else if(count ===2 && window.pageYOffset > 850){
+    //         }
+    //         else if(window.pageYOffset > 850){
                
                 
                 
-                // $scope.movies.push(store.slice(store.length/4,store.length/2))
-                data(store.length/2,store.length)
-                count++
-                console.log("loading...",$scope.movies,count)
+    //             // $scope.movies.push(store.slice(store.length/4,store.length/2))
+    //             data(store.length/2,store.length)
+    //             count++
+    //             console.log("loading...",$scope.movies,count)
     
     
-            }
-            else{
-                console.log("Done")
-            }
-            // else if(window.pageYOffset > 1000){
+    //         }
+            
+    //         // else if(window.pageYOffset > 1000){
                 
                 
-            //     $scope.movies.push(store.slice(store.length/2,store.length))
-            //     console.log("loading again",$scope.movies)
+    //         //     $scope.movies.push(store.slice(store.length/2,store.length))
+    //         //     console.log("loading again",$scope.movies)
     
     
-            // }
+    //         // }
     
-        })
+    //     })
         
     
     
@@ -227,13 +351,22 @@ controllers.movieInfo=function($scope,$routeParams,$http)
     item=encodeURIComponent(item.trim())
     console.log(item,"item")
     let newUrl = `https://api.edamam.com/api/recipes/v2?type=public&q=${item}&app_id=4e32da9c&app_key=efdfa913dbc17776fa8cbd36ab42b94f`
-    console.log("=========Det=========")
+    console.log("====#=====Det=====#====")
     console.log(item,newUrl)
     $http.get(newUrl).then((data)=> $scope.movies = data.data.hits)
     console.log($scope.movies)
     $scope.movie = bucket
     console.log($scope.movie)
 }
+
+
+
+// $(document).ready(function() {
+//     $ ("#mov").lazyScrollLoading({
+//     isDefaultLazyImageMode : true
+//     });
+//     });
+    
 
 
 
@@ -262,7 +395,13 @@ controllers.offer = function($scope){
     $scope.message="This is it "
 }
 
+
+
 app.controller(controllers)
+
+
+
+
 
 
 
